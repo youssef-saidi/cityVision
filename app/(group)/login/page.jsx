@@ -51,9 +51,9 @@ const Login = () => {
             <br /> Please login to your account.
           </h1>
           <h3 className="font-normal md:pt-8 pt-4 text-sm tracking-wider">
-            Don't have an account ?{" "}
+            Don &apos t have an account ?
             <Link href={routes.REGISTER}>
-              {" "}
+              
               <strong className="text-blue font-semibold">
                 Sign up here !
               </strong>
@@ -135,8 +135,6 @@ const Login = () => {
         <h1 className="text-5xl font-bold">Logo</h1>
         <p className="font-medium leading-7 text-sm pt-10">
           Hello! How can I assist you today?
-
-
         </p>
       </div>
       <div className="md:hidden flex items-center justify-center my-auto h-44">
