@@ -1,0 +1,542 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+:root {
+  --bgLinearBlue: linear-gradient(298.14deg, #2B78E0 18.09%, rgba(43, 120, 224, 0.79) 81.24%);
+  --colorPrimary: #5D6E81;
+  --colorBgPrimary: #F5F7F8;
+  --colorBgLogin: #EDF2F8;
+  --colorBlue: #2C79E0;
+  --navigationWidth: 240px;
+  --navigationWidthCollapsed: 80px;
+   --bgStep: #F5F6FD;
+  --primaryColor: #5C70D6;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--colorBlue);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--colorBlue);
+  border-radius: 50px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif !important;
+  background-color: var(--colorBgPrimary);
+  color: var(--colorPrimary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.bgPrimary{
+  background-color: var(--colorBgPrimary);
+}
+
+
+
+.sidebar-navigation {
+  width: 100%;
+  max-width: var(--navigationWidthCollapsed);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 25;
+  padding-top: 55px;
+}
+
+.sidebar-navigation.active-navigation {
+  max-width: var(--navigationWidth);
+}
+
+.main-app-container {
+  padding: 15px;
+  padding-top: 55px;
+  width: calc(100% - var(--navigationWidthCollapsed));
+  float: right;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.main-app-container.active-container {
+  width: calc(100% - var(--navigationWidth));
+}
+
+.bg-black {
+  background-color: black;
+}
+
+
+
+.bgLinearBlue {
+  background: var(--bgLinearBlue);
+}
+
+.Whitecontainer {
+  /* box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1); */
+  border-radius: 10px 0px 0px 0px;
+}
+
+.text-blue {
+  color: var(--colorBlue);
+}
+
+.bg-blue {
+  background-color: var(--colorBlue);
+}
+
+.inputLogin {
+  font-size: .9rem;
+  font-weight: normal;
+  color: rgb(0 0 0 / .4);
+  background: #fff;
+  border: 1px solid #D9E2EE;
+  border-radius: 5px;
+}
+
+.bgLogin {
+  background-color: var(--colorBgLogin);
+  box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25);
+  border-radius: 40px 40px 0px 0px;
+}
+
+@media (min-width: 768px) {
+  .bgLogin {
+    background-color: var(--colorBgLogin);
+    box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 100px 0px;
+  }
+}
+
+.outlin input:focus-within~label,
+.outlin input:not(:placeholder-shown)~label {
+  @apply transform scale-75 -translate-y-4 z-0 mb-3 mt-3 px-1 py-0;
+}
+
+.btnLogin {
+  background: #2C79E0;
+  box-shadow: 0px 10.4502px 23.2228px -6.96683px #2C79E0;
+  border-radius: 100px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.active {
+  color: var(--colorBlue);
+}
+
+.active svg {
+  fill: var(--colorBlue);
+  color: #bfdbff;
+}
+
+.active .activeStroke {
+  stroke: var(--colorBlue) !important;
+  fill: none !important;
+}
+
+.active .text-nav {
+  font-weight: 700;
+  color: var(--colorPrimary) !important;
+  fill: var(--colorBlue);
+
+}
+
+.rotateIcon {
+  transform: rotate(180deg);
+  fill: var(--colorBlue);
+}
+
+.rotate {
+  transform: rotate(180deg);
+
+}
+
+.shdow {
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.05);
+  letter-spacing: 0.05em;
+
+}
+
+@media (max-width: 1024px) {
+  .text-xxs {
+    font-size: 10px;
+  }
+
+}
+
+.borderCardChrono {
+  background: #5D6E81;
+  border-radius: 12px 12px 0px 0px;
+}
+
+/* ------Gallery----------- */
+.image-gallery-svg {
+  width: 25px !important;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #00000052;
+}
+
+.ImgCard:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 14px;
+  border: solid 1px white;
+  padding: 5px 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-transform: uppercase;
+  width: 90%;
+  border-radius: 5px;
+  font-weight: 700;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .NewOrderButton {
+    background: #FFFFFF;
+    border: 1px solid #D9E2EE;
+    border-radius: 5px;
+    height: 36px;
+  }
+
+  .Button {
+    background: #FFFFFF;
+    border: 1px solid #D9E2EE;
+    border-radius: 5px;
+    width: 100px;
+    height: 36px;
+  }
+
+  .ButtonSort {
+    background: #FFFFFF;
+    border: 1px solid #D9E2EE;
+    border-radius: 5px;
+    width: 86px;
+    height: 36px;
+  }
+
+  .ButtonPoint {
+    background: #FFFFFF;
+    border: 1px solid #D9E2EE;
+    border-radius: 5px;
+    width: 36px;
+    height: 36px;
+  }
+
+}
+
+.NewOrderButton {
+  background: #FFFFFF;
+  border: 1px solid #D9E2EE;
+  height: 36px;
+}
+
+.NewOrderButton.blue {
+  background: var(--colorBlue);
+  color: white;
+}
+
+.Button {
+  background: #FFFFFF;
+  border: 1px solid #D9E2EE;
+  border-radius: 5px;
+  width: 100px;
+  height: 36px;
+}
+
+.ButtonSort {
+  background: #FFFFFF;
+  border: 1px solid #D9E2EE;
+  border-radius: 5px;
+  width: 76px;
+  height: 36px;
+}
+
+.ButtonPoint {
+  background: #FFFFFF;
+  border: 1px solid #D9E2EE;
+  border-radius: 5px;
+  width: 36px;
+  height: 36px;
+}
+
+.bord {
+  width: 93px;
+  height: 20px;
+  left: -60px;
+  top: -2px;
+  border: 1px solid #F2F2F2;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(-90deg);
+
+}
+
+
+input[type="checkbox"]+label {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked+label {
+  background-color: var(--colorPrimary);
+}
+
+input[type="checkbox"]:checked+label:after {
+  position: relative;
+  top: -2px;
+  left: 4px;
+  width: 100%;
+  height: 100%;
+  content: '\2714';
+  font-size: 14px;
+  color: white;
+}
+
+input[id="tab"]:checked+label:after {
+  position: relative;
+  top: -2px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: '\2714';
+  font-size: 14px;
+  color: white;
+}
+
+input[type="checkbox"] {
+  display: block;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: var(--colorPrimary) !important;
+}
+
+.slick-prev {
+  left: -13px !important;
+  z-index: 10 !important;
+}
+
+.slick-next {
+  right: -13px !important;
+  z-index: 10 !important;
+}
+
+textarea {
+  resize: none;
+}
+
+
+table {
+  text-align: left;
+}
+
+/*.__checkbox {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: super;
+  width: 22px;
+  height: 22px;
+  input[type="checkbox"] {
+    display: none;
+    &:checked {
+      &+label {
+        border-color: var(--colorBlue);
+        &:before {
+          content: '';
+          border-radius: 100%;
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background-color: var(--colorBlue);
+        }
+      }
+    }
+  }
+}*/
+
+.__checkbox label {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  border-radius: 6px;
+}
+
+.__checkbox label:after {
+  display: none;
+}
+
+.__checkbox input[type="checkbox"] {
+  display: none;
+}
+
+
+.__checkbox input[type="checkbox"]:checked+label {
+  border-color: var(--colorBlue);
+  background-color: white;
+}
+
+.__checkbox input[type="checkbox"]:checked+label:before {
+  content: url('data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 270" width="12" stroke="%232C79E0" fill="none" stroke-width="30"><path d="M 30,180 90,240 240,30"/></svg>');
+  border-radius: 100%;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+
+.__checkbox.select-all input[type="checkbox"]:checked+label:before {
+  content: url('data:image/svg+xml; utf8,<svg width="12" height="2" viewBox="0 0 12 1" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="2" fill="%232C79E0"/></svg>');
+  border-radius: 100%;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+
+.elefta-table thead tr th {
+  padding: 15px 0;
+}
+
+.elefta-table tbody tr {
+  border-top: 1px solid #F2F2F2;
+}
+
+.elefta-table tbody tr:nth-child(even) {
+  background-color: #FAFAFA;
+}
+
+.elefta-table thead .order-button {
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.elefta-ant-table .ant-table-body {
+  /*width: max-content;*/
+}
+
+
+.react-resizable {
+  position: relative;
+}
+
+.react-resizable-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 2px;
+  height: 100%;
+  cursor: col-resize;
+  background: #c6c6c6;
+  opacity: 0;
+  transition: .2s ease-in-out;
+}
+
+.react-resizable.disable-resize .react-resizable-handle {
+  display: none;
+}
+
+table thead:hover .react-resizable-handle {
+  opacity: .4;
+}
+
+table thead:hover .react-resizable-handle:hover {
+  opacity: 1;
+}
+
+.btnInventory {
+  box-shadow: 0px 10.4502px 23.2228px -6.96683px #2C79E0;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  -webkit-appearance: none;
+}
+.react-datepicker__input-container input{
+  @apply block p-4 md:w-full w-80 inputLogin text-base appearance-none outline-none bg-transparent text-black text-sm pt-4 pb-4 font-medium;
+}
+
+
+
+.bgStep {
+  background-color: var(--bgStep);
+}
+
+.textBlue {
+  color: var(--primaryColor);
+}
+
+.shaddowColor {
+  box-shadow: 0px 20px 41px -8px rgba(92, 112, 214, 0.16);
+}
+
+.helpShaddow {
+  box-shadow: 0px 4px 24px rgba(92, 112, 214, 0.16);
+}
