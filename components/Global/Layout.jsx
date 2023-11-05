@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
@@ -13,14 +13,39 @@ import { setCategoriesAndZones } from "@/redux/slices/dataSlice";
 export default function Layout({ children }) {
   const isOpenSideBar = useSelector((state) => state.button.sideBar);
   const isOpenChooseCamera = useSelector((state) => state.button.chooseCamera);
+  const cameraChoosed = useSelector((state) => state.camera.cameraChoosed);
+  const analysisType = useSelector((state) => state.camera.analysisType);
+  const [formErrors, updateFormErrors] = useState({});
+
+
 
   const dispatch = useDispatch()
 
-  const options =useSelector((state) => state.camera.options);
+  const options = useSelector((state) => state.camera.options);
   useEffect(() => {
     dispatch(setCategoriesAndZones());
   }, [dispatch]);
 
+  const handleSubmit = () => {
+    if (cameraChoosed != "" && analysisType != "") {
+      dispatch(toggleChooseCamera())
+    }
+    if (cameraChoosed === "") {
+      updateFormErrors({ filterCamera: "Camera is required" })
+    }
+    
+    if (analysisType === "") {
+      updateFormErrors({ filterAnalysis: "Type is required" })
+
+    }
+
+
+
+  }
+  const displayError = (key) => {
+    if (!_.isEmpty(formErrors[key]))
+      return <div className="pt-3 text-red-700">{formErrors[key]}</div>;
+  };
   return (
 
     <>
@@ -38,16 +63,18 @@ export default function Layout({ children }) {
             <div className="flex flex-col py-10 px-5">
               <div>
                 <FilterSelect title="Select a Camera" placeholder="Select your Camera" options={options} onOptionSelect={selectCamera} />
-                <FilterSelect title="Select Analysis Type" placeholder="Select your Camera" options={[{option: "Type 1"},{option: "Type 2"},{option: "Type 3"},]} onOptionSelect={selectAnalysis} />
+                {displayError("filterCamera")}
+                <FilterSelect title="Select Analysis Type" placeholder="Select your Camera" options={[{ option: "Type 1" }, { option: "Type 2" }, { option: "Type 3" },]} onOptionSelect={selectAnalysis} />
+                {displayError("filterAnalysis")}
 
               </div>
 
               <div className="flex flex-row place-content-end	">
                 <button onClick={() => {
-                  dispatch(toggleChooseCamera())
+                  // dispatch(toggleChooseCamera())
                 }} style={{ Color: "#5D6E81" }} className="p-2 lg:p-3 mt-2 lg:mt-5 rounded-md text-xs font-normal leading-5 lg:text-sm cursor-pointer border">Cancel</button>
                 <button onClick={() => {
-                  dispatch(toggleChooseCamera())
+                  handleSubmit()
                 }}
                   style={{ backgroundColor: "#2C79E0" }} className="ml-4 mr-1 p-2 lg:p-3 mt-2 lg:mt-5 rounded-md text-xs font-bold leading-5 lg:text-sm text-white cursor-pointer">Validate</button>
               </div>

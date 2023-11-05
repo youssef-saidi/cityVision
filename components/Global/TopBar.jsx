@@ -54,7 +54,7 @@ const TopBar = (props) => {
 
         <div className="absolute right-0 flex select-none">
           <div className="flex items-center">
-            <button>
+            {/* <button>
               <svg
                 className="mx-3"
                 width="20"
@@ -90,7 +90,7 @@ const TopBar = (props) => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
+            </button> */}
 
             <button>
               <svg
