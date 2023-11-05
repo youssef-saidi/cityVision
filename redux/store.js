@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import buttonSlice from './slices/buttonSlice'
 import userSlice from './slices/userSlice'
 import cameraSlice from './slices/cameraSlice';
+import dataSlice from './slices/dataSlice';
 
 
 
@@ -11,7 +12,8 @@ import cameraSlice from './slices/cameraSlice';
     reducer: {
       user: userSlice,
       button:buttonSlice,
-      camera:cameraSlice
+      camera:cameraSlice,
+      data:dataSlice
     },
   })
 

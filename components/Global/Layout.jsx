@@ -5,8 +5,9 @@ import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import BottomBar from "./BottomBar";
 import { toggleChooseCamera } from "@/redux/slices/buttonSlice";
-import Filter from "./Filter";
-import { selectCamera } from "@/redux/slices/cameraSlice";
+import { selectAnalysis, selectCamera } from "@/redux/slices/cameraSlice";
+import FilterSelect from "./FilterSelect";
+import { setCategoriesAndZones } from "@/redux/slices/dataSlice";
 
 
 export default function Layout({ children }) {
@@ -16,6 +17,9 @@ export default function Layout({ children }) {
   const dispatch = useDispatch()
 
   const options =useSelector((state) => state.camera.options);
+  useEffect(() => {
+    dispatch(setCategoriesAndZones());
+  }, [dispatch]);
 
   return (
 
@@ -24,7 +28,7 @@ export default function Layout({ children }) {
         <div className="fixed top-0  w-screen h-screen bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white drop-shadow-xl rounded-xl sm:w-1/2">
             <button className="w-full  borderCardChrono relative py-5 flex items-center  px-4">
-              <span className="text-white font-bold text-lg">Choose Your Camera Please</span>
+              <span className="text-white font-bold text-lg">Settings</span>
               <svg onClick={() => {
                 dispatch(toggleChooseCamera())
               }} className="absolute right-0 mr-5 cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +37,8 @@ export default function Layout({ children }) {
             </button>
             <div className="flex flex-col py-10 px-5">
               <div>
-                <Filter title="Select a Camera" placeholder="Select your Camera" options={options} onOptionSelect={selectCamera} />
+                <FilterSelect title="Select a Camera" placeholder="Select your Camera" options={options} onOptionSelect={selectCamera} />
+                <FilterSelect title="Select Analysis Type" placeholder="Select your Camera" options={[{option: "Type 1"},{option: "Type 2"},{option: "Type 3"},]} onOptionSelect={selectAnalysis} />
 
               </div>
 

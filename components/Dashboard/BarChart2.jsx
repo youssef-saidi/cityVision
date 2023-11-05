@@ -1,75 +1,75 @@
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, } from "chart.js";
+import { getCategoriesAndZones, getCategoryPerZone } from "@/constants/filter";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { useSelector } from "react-redux";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Tooltip,
-);
-
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-  scales: {
-    x:{
-      stacked:true,
-      display: false
-
-    },
-    y:{
-      beginAtZero:true,
-      stacked:true,
-      display: false
-
-    }
-  },
-};
-
-const labels = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
-
-
-export const data = {
-  labels,
-  datasets: [
-    {
-    barPercentage: 10,
-    barThickness: 50,
-    maxBarThickness: 25,
-    minBarLength: 2,
-    data: [50, 40, 35, 40, 30, 25, 20, 15, 13, 10, 8, 5, 4, 3, 1],
-    backgroundColor: "#263238"
-  },
-  {
-    barPercentage: 10,
-    barThickness: 50,
-    maxBarThickness: 25,
-    minBarLength: 2,
-    data: [10, 20, 25, 20, 10, 15, 10, 5, 18,40, 18, 15, 14, 13, 12],
-    backgroundColor: "#855CF8"
-  },
-  {
-    barPercentage: 10,
-    barThickness: 50,
-    maxBarThickness: 25,
-    minBarLength: 2,
-    data: [10, 20, 25, 20, 10, 15, 10, 5, 18,40, 18, 15, 14, 13, 12],
-    backgroundColor: "rgba(44, 121, 224, 0.3)"
-  },
-]
-};
-
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 const BarChart2 = () => {
+  const filteredData = useSelector((state) => state.data.filteredData);
+
+
+  const { categories, zones } = getCategoriesAndZones(filteredData);
+
+  const datasets = [];
+
+
+  categories.forEach((category) => {
+    const dataset = {
+      label: category,
+      data: zones.map((zone) => {
+        const data=getCategoryPerZone(filteredData,[category],[zone])
+        return data.length
+      }),
+
+      backgroundColor: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.4)`,
+    };
+    datasets.push(dataset);
+  });
+
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+      },
+    },
+    scales: {
+      x: {
+        stacked: true,
+        display: true,
+        title: {
+          display: true,
+          text: "Zones",
+        },
+      },
+      y: {
+        beginAtZero: true,
+        stacked: true,
+        display: true,
+        title: {
+          display: true,
+          text: "Count",
+        },
+      },
+    },
+  };
+
+  const data = {
+    labels: zones,
+    datasets,
+  };
+
+  const result =getCategoryPerZone(filteredData,['car'],[1])
+  console.log(result)
+
+
   return (
     <div className="relative">
       <Bar data={data} options={options} width={"250%"} />
     </div>
-  )
-}
+  );
+};
 
-export default BarChart2
+export default BarChart2;

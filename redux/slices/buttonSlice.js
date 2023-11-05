@@ -22,7 +22,6 @@ export const buttonSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { toggleSideBar,toggleChooseCamera } = buttonSlice.actions
 
 export default buttonSlice.reducer

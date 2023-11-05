@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-const Filter = ({ title, placeholder, options, onOptionSelect }) => {
+const FilterSelect = ({ title, placeholder, options, onOptionSelect }) => {
     const [selectedOption, setSelectedOption] = useState('');
     const dispatch = useDispatch()
 
@@ -36,4 +36,4 @@ const Filter = ({ title, placeholder, options, onOptionSelect }) => {
     );
 };
 
-export default Filter;
+export default FilterSelect;

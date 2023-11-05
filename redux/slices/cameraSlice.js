@@ -11,7 +11,8 @@ const initialState = {
     option: "Camera 3"
   },
   ],
-  cameraChoosed:""
+  cameraChoosed:"",
+  analysisType:""
 
 }
 
@@ -22,6 +23,9 @@ export const cameraSlice = createSlice({
     selectCamera: (state,action) => {
       state.cameraChoosed = action.payload
     },
+    selectAnalysis: (state,action) => {
+      state.analysisType = action.payload
+    },
 
 
   
@@ -29,7 +33,6 @@ export const cameraSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { selectCamera } = cameraSlice.actions
+export const { selectCamera ,selectAnalysis } = cameraSlice.actions
 
 export default cameraSlice.reducer
