@@ -30,14 +30,15 @@ export default function Layout({ children }) {
     if (cameraChoosed != "" && analysisType != "") {
       dispatch(toggleChooseCamera())
     }
+       if (analysisType === "") {
+      updateFormErrors({ filterAnalysis: "Type is required" })
+
+    }
     if (cameraChoosed === "") {
       updateFormErrors({ filterCamera: "Camera is required" })
     }
     
-    if (analysisType === "") {
-      updateFormErrors({ filterAnalysis: "Type is required" })
-
-    }
+ 
 
 
 
