@@ -8,6 +8,8 @@ import { toggleChooseCamera } from "@/redux/slices/buttonSlice";
 import { selectAnalysis, selectCamera } from "@/redux/slices/cameraSlice";
 import FilterSelect from "./FilterSelect";
 import { setCategoriesAndZones } from "@/redux/slices/dataSlice";
+import _ from "lodash";
+
 
 
 export default function Layout({ children }) {
