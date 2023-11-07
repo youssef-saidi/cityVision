@@ -4,10 +4,9 @@ import BarChart from "./BarChart"
 
 const CategorieTime = () => {
     return (
-        <div className="flex flex-col  bg-white  py-5 px-4 rounded-xl drop-shadow-md lg:mr-5">
+        <div className="flex flex-col bg-white py-5 px-4 rounded-xl drop-shadow-md lg:mr-5">
             <div className="flex items-center pb-5 relative mb-5 w-full border-b">
-                <TitleCard title={"Total Value of Inventory"} />
-
+                <TitleCard title={"Time-Category Analysis"} />
                 <div className="flex justify-end items-center absolute right-0 text-blue cursor-pointer">
                     <h1 className="mr-5">This month</h1>
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">

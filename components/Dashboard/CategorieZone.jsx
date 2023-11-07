@@ -1,11 +1,11 @@
 import TitleCard from "../Global/TitleCard"
 import BarChart2 from "./BarChart2"
 
-const TotalRevenue = () => {
+const CategorieZone = () => {
     return (
         <div className="flex flex-col bg-white py-5 px-4 rounded-xl drop-shadow-md xl:mt-0 mt-2">
             <div className="flex items-center pb-5 relative mb-5 w-full border-b">
-                <TitleCard title={"Total Revenue Vs Cost"} />
+                <TitleCard title={"Categories by Zone"} />
 
                 <div className="flex justify-end items-center absolute right-0 text-blue cursor-pointer">
                     <h1 className="mr-5">This month</h1>
@@ -20,4 +20,4 @@ const TotalRevenue = () => {
     )
 }
 
-export default TotalRevenue
+export default CategorieZone

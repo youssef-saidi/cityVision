@@ -5,7 +5,7 @@ const CatergoriesDoughnut = () => {
   return (
     <div className="flex flex-col  bg-white  py-5 px-4 rounded-xl drop-shadow-md lg:mr-5">
             <div className="flex items-center pb-5 relative mb-5 w-full border-b">
-                <TitleCard title={"Categories per Time"} />
+                <TitleCard title={"Category Comparison"} />
 
                 <div className="flex justify-end items-center absolute right-0 text-blue cursor-pointer">
                     <h1 className="mr-5">This month</h1>

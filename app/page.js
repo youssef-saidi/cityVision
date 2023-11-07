@@ -3,8 +3,8 @@
 import TopTitle from '@/components/Global/TopTitle';
 import isAuth from '@/components/isAuth'
 import Layout from '@/components/Global/Layout';
-import Aged from '@/components/Dashboard/Aged';
-import TotalRevenue from '@/components/Dashboard/TotalRevenue';
+import ZoneOverview from '@/components/Dashboard/ZoneOverview';
+import CategorieZone from '@/components/Dashboard/CategorieZone';
 import GlobalStat from '@/components/Dashboard/GlobalStat';
 import { useDispatch, useSelector } from 'react-redux';
 import CategorieTime from '@/components/Dashboard/CategorieTime';
@@ -16,22 +16,22 @@ import { filterdata } from '@/redux/slices/dataSlice';
 const Home = () => {
     const dispatch = useDispatch()
 
-    const cameraSelected = useSelector((state) => state.camera.cameraChoosed);
-    const analysisSelected = useSelector((state) => state.camera.analysisType);
+    const cameraSelected = useSelector((state) => state.camera.cameraChoosed),
+        analysisSelected = useSelector((state) => state.camera.analysisType),
+        options = useSelector((state) => state.data.categories),
+        options1 = useSelector((state) => state.data.zones);
 
-    const [openfilter, setopenfilter] = useState(false)
+    const [openfilter, setopenfilter] = useState(false),
+        [categoryFilter, setCategoryFilter] = useState([]),
+        [zoneFilter, setZoneFilter] = useState([]);
 
 
-    const options = useSelector((state) => state.data.categories);
-    const options1 = useSelector((state) => state.data.zones);
+
     const ShowFilter = () => {
         setCategoryFilter([])
         setZoneFilter([])
         setopenfilter(!openfilter)
     }
-
-    const [categoryFilter, setCategoryFilter] = useState([]);
-    const [zoneFilter, setZoneFilter] = useState([]);
 
     const handleCategoryFilterChange = (selectedCategory) => {
         if (!categoryFilter.includes(selectedCategory)) {
@@ -70,7 +70,7 @@ const Home = () => {
 
 
                             </div>
-                            
+
 
                             <div className="flex flex-row place-content-end	">
                                 <button onClick={() => {
@@ -105,12 +105,13 @@ const Home = () => {
                         </button>
                     </div>
                     <div className="grid xl:grid-cols-10 grid-cols-1  mt-5">
-                        <GlobalStat />
-                        <Aged />
+             
+                        <ZoneOverview />   
+                                <GlobalStat />
                     </div>
                     <div className="grid lg:grid-cols-2 gap-y-2 mt-5">
                         <CategorieTime />
-                        <TotalRevenue />
+                        <CategorieZone />
                     </div>
 
                     <div className="grid lg:grid-cols-2 gap-y-2 mt-5">
@@ -119,7 +120,8 @@ const Home = () => {
 
                     </div>
                 </Layout>
-            </section></>
+            </section>
+        </>
     )
 }
 
