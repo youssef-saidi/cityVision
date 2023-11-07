@@ -12,6 +12,8 @@ import CatergoriesDoughnut from '@/components/Dashboard/CatergoriesDoughnut';
 import { useState } from 'react';
 import FilterCheckbox from '@/components/Global/FilterCheckbox';
 import { filterdata } from '@/redux/slices/dataSlice';
+import LineChart from '@/components/Dashboard/LineChart';
+import ZoneInZoneOut from '@/components/Dashboard/ZoneInZoneOut';
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -105,9 +107,9 @@ const Home = () => {
                         </button>
                     </div>
                     <div className="grid xl:grid-cols-10 grid-cols-1  mt-5">
-             
-                        <ZoneOverview />   
-                                <GlobalStat />
+
+                        <ZoneOverview />
+                        <GlobalStat />
                     </div>
                     <div className="grid lg:grid-cols-2 gap-y-2 mt-5">
                         <CategorieTime />
@@ -116,7 +118,7 @@ const Home = () => {
 
                     <div className="grid lg:grid-cols-2 gap-y-2 mt-5">
                         <CatergoriesDoughnut />
-                        <CatergoriesDoughnut />
+                        <ZoneInZoneOut />
 
                     </div>
                 </Layout>

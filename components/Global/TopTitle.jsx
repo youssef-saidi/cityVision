@@ -1,11 +1,5 @@
-import _ from "lodash";
 
 const TopTitle = ({ title ,subTitle ,type }) => {
-  // const user = useSelector((state) => state.user.user);
-  // let name;
-  // const state = useSelector( state =>  state);
-
-  // if (!_.isEmpty(user)) name = user[0].firstname;
 
   return (
     <div className="flex flex-col items-center md:items-start text-xl mt-6">

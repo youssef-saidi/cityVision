@@ -1,4 +1,4 @@
-import { getCategoriesAndZones, getCategoryPerZone } from "@/constants/filter";
+import { getCategoriesAndZones, getCategoryPerZone, zoneAnalysis } from "@/constants/filter";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { useSelector } from "react-redux";
@@ -61,7 +61,7 @@ const BarChart2 = () => {
     datasets,
   };
 
-  const result =getCategoryPerZone(filteredData,['car'],[1])
+  const result =zoneAnalysis(filteredData)
   console.log(result)
 
 

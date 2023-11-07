@@ -31,7 +31,6 @@ const BarChart = () => {
 
   const Days = Object.keys(categorySumsByDay);
 
-  // Initialize labels and datasets arrays
   const labels = Days;
   const datasets = [];
 
