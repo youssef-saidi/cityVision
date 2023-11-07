@@ -56,5 +56,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```markdown
 ![Screenshot 1](https://github.com/youssef-saidi/cityVision/tree/master/public/img.png?raw=true)
 ![Screenshot 2](https://github.com/youssef-saidi/cityVision/tree/master/public/next.svg?raw=true)
-```
+
 
