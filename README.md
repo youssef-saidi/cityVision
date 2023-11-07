@@ -6,10 +6,17 @@ The CityVision application is an innovative project designed to transform video 
 
 ## Table of Contents
 
+- [Live Server](#live-server)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
+
+
+### Live Server
+
+You can access the live version of the CityVision app [here](https://city-vision.vercel.app).
+
 
 ### Installation
 
@@ -17,10 +24,10 @@ The CityVision application is an innovative project designed to transform video 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/your-app.git
+   git clone https://github.com/youssef-saidi/cityVision.git
    ```
 
-## Getting Started
+### Getting Started
 
 First ,Change directory to your app folder:
 ```bash
@@ -47,6 +54,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Screenshots
 ```markdown
-![Screenshot 1](path/to/screenshot1.png)
-![Screenshot 2](path/to/screenshot2.png)
+![Screenshot 1](/img.png)
+![Screenshot 2](/next.svg)
+``````
 
